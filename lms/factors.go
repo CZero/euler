@@ -22,14 +22,16 @@ func FindFactors(input int) []int {
 
 // FindNumFactors finds the number of factors of a number. You should be able to do some voodoo with PrimeFactors, but
 // I'm not using that yet.
-func FindNumFactors(input int) int {
+func FindNumFactors(input int, primes []int) int {
 	// This page explains how to use primefactors to calculate faster: https://www.geeksforgeeks.org/no-factors-n/
 	// The formula: n! = (a1+1) x (a2+1) x (a3+1)……………(ak+1)
 	// If you go through number theory, you will find an efficient way to find the number of factors. If we take a number,
 	// say in this case 30, then the prime factors of 30 will be 2, 3, 5 with count of each of these being 1 time,
 	// so total number of factors of 30 will be (1+1)*(1+1)*(1+1) = 8. https://www.geeksforgeeks.org/efficient-program-print-number-factors-n-numbers/
 	var answer = 1
-	primes := PrimesBelow(input)
+	if len(primes) < 2 {
+		primes = PrimesBelow(input)
+	}
 	exponents := make([]int, len(primes))
 	for i, prime := range primes {
 		for {

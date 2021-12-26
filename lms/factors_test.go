@@ -70,7 +70,8 @@ func TestFactorial(t *testing.T) {
 
 func TestFindNumFactors(t *testing.T) {
 	type args struct {
-		input int
+		input  int
+		primes []int
 	}
 	tests := []struct {
 		name string
@@ -79,18 +80,18 @@ func TestFindNumFactors(t *testing.T) {
 	}{
 		{
 			name: "6",
-			args: args{6},
+			args: args{6, []int{}},
 			want: 4,
 		},
 		{
 			name: "24",
-			args: args{24},
+			args: args{24, []int{}},
 			want: 8,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := FindNumFactors(tt.args.input); got != tt.want {
+			if got := FindNumFactors(tt.args.input, tt.args.primes); got != tt.want {
 				t.Errorf("FindNumFactors() = %v, want %v", got, tt.want)
 			}
 		})
