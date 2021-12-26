@@ -33,3 +33,66 @@ func TestFindFactors(t *testing.T) {
 		})
 	}
 }
+
+func TestFactorial(t *testing.T) {
+	type args struct {
+		input int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "Factorial of 5",
+			args: args{5},
+			want: 120,
+		},
+		{
+			name: "Factorial of 9",
+			args: args{9},
+			want: 362880,
+		},
+		{
+			name: "Factorial of 10",
+			args: args{10},
+			want: 3628800,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Factorial(tt.args.input); got != tt.want {
+				t.Errorf("Factorial() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestFindNumFactors(t *testing.T) {
+	type args struct {
+		input int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "6",
+			args: args{6},
+			want: 4,
+		},
+		{
+			name: "24",
+			args: args{24},
+			want: 8,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := FindNumFactors(tt.args.input); got != tt.want {
+				t.Errorf("FindNumFactors() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
