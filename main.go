@@ -7,6 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Println(lms.GetTriangularNumber(3))
-	fmt.Println(lms.GetTriangularNumber(5))
+	fmt.Println(lms.Factorial(5))
 }

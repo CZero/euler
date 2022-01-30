@@ -88,6 +88,11 @@ func TestFindNumFactors(t *testing.T) {
 			args: args{24, []int{}},
 			want: 8,
 		},
+		{
+			name: "100",
+			args: args{100, []int{}},
+			want: 9,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

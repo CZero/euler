@@ -1,6 +1,9 @@
 package lms
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+)
 
 // FindFactors finds the factors of a number. You should be able to do some voodoo with PrimeFactors, but
 // I'm not using that yet.
@@ -43,6 +46,7 @@ func FindNumFactors(input int, primes []int) int {
 			}
 		}
 	}
+	fmt.Println(exponents)
 	for _, exp := range exponents {
 		if exp != 0 {
 			answer = (exp + 1) * answer
